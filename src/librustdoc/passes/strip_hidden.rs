@@ -123,7 +123,7 @@ impl DocFolder for Stripper<'_, '_> {
                     .unwrap_or(false);
             }
         }
-        if !is_hidden || i.inline_stmt_id.is_some() {
+        if !is_hidden || (i.inline_stmt_id.is_some() && !self.is_in_hidden_item) {
             if self.update_retained {
                 self.retained.insert(i.item_id);
             }
